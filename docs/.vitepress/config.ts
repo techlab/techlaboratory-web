@@ -41,5 +41,6 @@ export default defineConfig({
     },
     sitemap: {
         hostname: 'https://techlaboratory.net'
-    }
+    },
+    ignoreDeadLinks: true
 })
