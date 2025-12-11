@@ -1,0 +1,1 @@
+import{a1 as e,c as t,o}from"./chunks/framework.BJjp3inG.js";const p=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"copify/index.md","filePath":"copify/index.md"}'),a={name:"copify/index.md"},_=Object.assign(a,{setup(r){return e().go("/copify/v0/"),(s,i)=>(o(),t("div"))}});export{p as __pageData,_ as default};
