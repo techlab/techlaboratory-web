@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
     title: 'TechLaboratory',
     description: 'Smart and open-source JavaScript plugins',
-    base: process.env.NODE_ENV === 'production' ? '/techlaboratory-web/' : '/',
+    base: '/',
     cleanUrls: true,
     head: [
         ['meta', { name: 'theme-color', content: '#0b69ff' }],
