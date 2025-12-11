@@ -1,1 +1,0 @@
-import{_ as i,c as a,o as e,a0 as l}from"./chunks/framework.jZKc_ikl.js";const E=JSON.parse('{"title":"Copify JS","description":"","frontmatter":{},"headers":[],"relativePath":"copify.md","filePath":"copify.md"}'),t={name:"copify.md"};function n(h,s,p,r,k,o){return e(),a("div",null,[...s[0]||(s[0]=[l("",28)])])}const c=i(t,[["render",n]]);export{E as __pageData,c as default};
