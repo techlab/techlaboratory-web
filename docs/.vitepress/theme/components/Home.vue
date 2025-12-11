@@ -114,46 +114,96 @@ const products: Product[] = [
 </script>
 
 <template>
-	<div>
-		<!-- Hero Section -->
+	<div class="home-container">
+		<!-- Hero Section with Gradient -->
 		<section class="hero-section">
-			<h1 class="hero-title">React components and jQuery plugins</h1>
-			<p class="hero-tagline">Beautiful, modern and flexible React components and jQuery plugins with Bootstrap support.</p>
+			<div class="hero-content">
+				<div class="hero-buttons">
+					<div class="hero-badge">JavaScript</div>
+					<div class="hero-badge">React</div>
+					<div class="hero-badge">jQuery</div>
+				</div>
+				
+				<h1 class="hero-title">
+					<span class="gradient-text">Smart JavaScript Components for the web</span> 
+				</h1>
+				<p class="hero-tagline">
+					Modern, flexible, and production-ready components with modern UI support.
+					Built by developers, for developers.
+				</p>
+
+				<div class="hero-stats">
+					<div class="stat-item">
+						<div class="stat-number">6+</div>
+						<div class="stat-label">Projects</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">100%</div>
+						<div class="stat-label">Open Source</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">MIT</div>
+						<div class="stat-label">Licensed</div>
+					</div>
+				</div>
+
+				
+			</div>
 		</section>
 
 		<!-- Products Section -->
 		<section class="products-section">
+			<div class="section-header">
+				<h2 class="section-title">Our Projects</h2>
+				<p class="section-subtitle">Explore our collection of modern, well-documented components</p>
+			</div>
+
 			<div class="products-grid">
-				<div v-for="product in products" :key="product.title" class="product-card">
-					<h2>{{ product.title }}</h2>
-					<p class="description">{{ product.description }}</p>
-					
-					<ul>
-						<li v-for="(feature, index) in product.features" :key="index">
-							{{ feature }}
-						</li>
-					</ul>
-					
-					<div class="product-links">
-						<a :href="product.readMoreLink" class="product-link">Read more</a>
-						<a :href="product.docsLink" class="product-link secondary">Documentation</a>
-						<a :href="product.demoLink" class="product-link secondary">Demo</a>
+				<div v-for="(product, index) in products" :key="product.title" 
+				     class="product-card" 
+				     :class="`card-${index % 3}`">
+					<div class="card-header">
+						<div class="card-icon">
+							<span v-if="product.title.includes('React')">⚛️</span>
+							<span v-else-if="product.title.includes('Wizard')">🧙</span>
+							<span v-else-if="product.title.includes('Cart')">🛒</span>
+							<span v-else-if="product.title.includes('Tab')">📑</span>
+							<span v-else-if="product.title.includes('Copify')">📋</span>
+							<span v-else>⚙️</span>
+						</div>
+						<div class="card-tags">
+							<span v-if="product.title.includes('React')" class="tag tag-react">React</span>
+							<span v-if="product.title.includes('jQuery')" class="tag tag-jquery">jQuery</span>
+							<span v-if="product.title.includes('CLI')" class="tag tag-cli">CLI</span>
+						</div>
+					</div>
+
+					<h3 class="card-title">{{ product.title }}</h3>
+					<p class="card-description">{{ product.description }}</p>
+
+					<div class="features-preview">
+						<div v-for="(feature, idx) in product.features.slice(0, 3)" 
+						     :key="idx" 
+						     class="feature-item">
+							<svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>{{ feature }}</span>
+						</div>
+						<div v-if="product.features.length > 3" class="more-features">
+							+{{ product.features.length - 3 }} more features
+						</div>
+					</div>
+
+					<div class="card-footer">
+						<a :href="product.readMoreLink" class="card-button">
+							<span>Explore</span>
+							<svg class="button-arrow" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+							</svg>
+						</a>
 					</div>
 				</div>
-			</div>
-		</section>
-
-		<!-- About Section -->
-		<section class="products-section">
-			<div class="about-section">
-				<h2>About TechLaboratory</h2>
-				<p>
-					We stands for creating and delivering free and open source projects. 
-					Launched on September 2010 by <a href="http://dipu.me" target="_blank">Dipu Raj</a>, 
-					we are still keep supporting the open-source world. We have developed amazing React components 
-					and jQuery plugins, they are all open-source and available for free on this website.
-				</p>
-				<p class="thank-you">Thank you and Happy Coding!</p>
 			</div>
 		</section>
 	</div>

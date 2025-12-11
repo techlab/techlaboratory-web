@@ -3,7 +3,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
     title: 'TechLaboratory',
     description: 'Smart and open-source JavaScript plugins',
-    base: '/techlaboratory-web/',
+    base: process.env.NODE_ENV === 'production' ? '/techlaboratory-web/' : '/',
+    cleanUrls: true,
     head: [
         ['meta', { name: 'theme-color', content: '#0b69ff' }],
     ],
@@ -31,8 +32,7 @@ export default defineConfig({
                     { text: 'jQuery Smart Tab', link: '/jquery-smarttab/' },
                     { text: 'create-jquery-plugin', link: '/create-jquery-plugin/' }
                 ]
-            },
-            { text: 'About', link: '/about' }
+            }
         ],
         socialLinks: [
             { icon: 'github', link: 'https://github.com/techlab' },
