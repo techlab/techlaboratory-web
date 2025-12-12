@@ -1,5 +1,1 @@
-<script setup>
-import { useRouter } from 'vitepress'
-const router = useRouter()
-router.go('/create-jquery-plugin/v1/')
-</script>
+<!-- @include: ./v1/index.md -->

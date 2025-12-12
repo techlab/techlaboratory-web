@@ -1,13 +1,36 @@
 import { defineConfig } from 'vitepress'
 
+// Get Google Analytics ID from environment variable
+const GA_TAG_ID = process.env.VITE_GA_TAG_ID
+
+// Build head array conditionally
+const headConfig: any[] = [
+    ['meta', { name: 'theme-color', content: '#0b69ff' }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
+]
+
+// Only add Google Analytics if tag ID is provided
+if (GA_TAG_ID) {
+    headConfig.push(
+        ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GA_TAG_ID}` }],
+        [
+            'script',
+            {},
+            `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_TAG_ID}');`
+        ]
+    )
+}
+
 export default defineConfig({
     title: 'TechLaboratory',
     description: 'Smart and open-source JavaScript plugins',
+    // base: '/',
     base: '/techlaboratory-web/',
     cleanUrls: true,
-    head: [
-        ['meta', { name: 'theme-color', content: '#0b69ff' }],
-    ],
+    head: headConfig,
     themeConfig: {
         logo: './images/logo.png',
         nav: [
@@ -15,7 +38,7 @@ export default defineConfig({
             {
                 text: 'JavaScript',
                 items: [
-                    { text: 'Copify JS', link: '/copify' }
+                    { text: 'Copify JS', link: '/copify/' }
                 ]
             },
             {

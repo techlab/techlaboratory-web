@@ -5,8 +5,8 @@ description: The awesome step wizard plugin for jQuery
 
 # jQuery SmartWizard v5
 
-::: warning Archived Version
-This is an archived version. The latest version is [v6](/jquery-smartwizard/v6/).
+::: warning WARNING
+This is a documentation for an old version of jQuery SmartWizard. Please check the [latest version](/jquery-smartwizard/).
 :::
 
 The awesome step wizard plugin for jQuery. jQuery Smart Wizard is an accessible step wizard plugin for jQuery. Provides a neat and stylish interface for your forms, checkout screen, registration steps, etc.

@@ -4,13 +4,14 @@
       <div class="footer-left">
         <div class="footer-logo">
           <img src="/images/logo.png" alt="TechLaboratory" class="logo-img" />
-          <strong>TechLaboratory</strong>
+          <strong class="footer-title">TechLaboratory</strong>
         </div>
       </div>
 
       <div class="footer-right">
         <div class="footer-section">
           <h4>Resources</h4>
+          <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/privacy">Privacy Policy</a>
         </div>
@@ -66,22 +67,15 @@
   margin-bottom: 0.75rem;
 }
 
+.footer-title {
+  font-weight: 700;
+  color: #5ea8de;
+  font-size: 2rem;
+}
+
 .logo-img {
   margin: 0;
   padding: 0;
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-}
-.logo-img:hover, .logo-img:focus {
-  -webkit-filter: grayscale(0);
-  filter: none;
-}
-
-
-.footer-left strong {
-  font-size: 1.25rem;
-  color: var(--vp-c-text-1);
 }
 
 .footer-left p {
@@ -96,8 +90,10 @@
 
 .footer-section {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
 }
 
 .footer-section h4 {
@@ -107,6 +103,8 @@
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .footer-section a {

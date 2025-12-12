@@ -1,5 +1,1 @@
-<script setup>
-import { useRouter } from 'vitepress'
-const router = useRouter()
-router.go('/copify/v0/')
-</script>
+<!-- @include: ./v0/index.md -->
