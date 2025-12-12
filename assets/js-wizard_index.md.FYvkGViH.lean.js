@@ -1,1 +1,0 @@
-import{a1 as e,c as t,o as a}from"./chunks/framework.BoCgzVXX.js";const c=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"js-wizard/index.md","filePath":"js-wizard/index.md"}'),r={name:"js-wizard/index.md"},_=Object.assign(r,{setup(s){return e().go("/js-wizard/v1/"),(i,n)=>(a(),t("div"))}});export{c as __pageData,_ as default};
