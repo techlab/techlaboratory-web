@@ -489,6 +489,38 @@ if (typeof window !== 'undefined') {
     document.head.appendChild(swScript);
   };
   document.head.appendChild(jqueryScript);
+
+  // Demo navigation
+  window.showDemo = function(demoType) {
+    // Hide all demos
+    document.querySelectorAll('.demo-container').forEach(el => {
+      el.style.display = 'none';
+    });
+    
+    // Show selected demo
+    document.getElementById('demo-' + demoType).style.display = 'block';
+    
+    // Update button states
+    document.querySelectorAll('.demo-btn').forEach(btn => {
+      btn.classList.remove('active');
+      btn.style.background = 'var(--vp-c-bg-mute)';
+      btn.style.color = 'var(--vp-c-text-1)';
+      btn.style.border = '1px solid var(--vp-c-divider)';
+    });
+    
+    const activeBtn = document.getElementById('btn-' + demoType);
+    activeBtn.classList.add('active');
+    activeBtn.style.background = 'var(--vp-c-brand-1)';
+    activeBtn.style.color = 'white';
+    activeBtn.style.border = 'none';
+  }
+
+  // Theme changer
+  window.changeTheme = function(theme) {
+    if (window.themesWizard) {
+      $('#smartwizard-themes').smartWizard('theme', theme);
+    }
+  }
 }
 
 function initializeDemos() {
@@ -600,38 +632,6 @@ function initializeDemos() {
       position: 'bottom'
     }
   });
-}
-
-// Demo navigation
-window.showDemo = function(demoType) {
-  // Hide all demos
-  document.querySelectorAll('.demo-container').forEach(el => {
-    el.style.display = 'none';
-  });
-  
-  // Show selected demo
-  document.getElementById('demo-' + demoType).style.display = 'block';
-  
-  // Update button states
-  document.querySelectorAll('.demo-btn').forEach(btn => {
-    btn.classList.remove('active');
-    btn.style.background = 'var(--vp-c-bg-mute)';
-    btn.style.color = 'var(--vp-c-text-1)';
-    btn.style.border = '1px solid var(--vp-c-divider)';
-  });
-  
-  const activeBtn = document.getElementById('btn-' + demoType);
-  activeBtn.classList.add('active');
-  activeBtn.style.background = 'var(--vp-c-brand-1)';
-  activeBtn.style.color = 'white';
-  activeBtn.style.border = 'none';
-}
-
-// Theme changer
-window.changeTheme = function(theme) {
-  if (window.themesWizard) {
-    $('#smartwizard-themes').smartWizard('theme', theme);
-  }
 }
 </script>
 
