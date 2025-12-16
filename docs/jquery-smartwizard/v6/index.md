@@ -10,7 +10,7 @@ head:
       content: wizard, step, jQuery, jQuery plugin, jQuery wizard, jQuery step wizard
 ---
 
-# jQuery SmartWizard v6
+# jQuery SmartWizard <Badge type="tip" text="v6" />
 
 The awesome step wizard plugin for jQuery. 
 
@@ -36,186 +36,25 @@ The awesome step wizard plugin for jQuery.
 
 </div>
 
+
 ## Demo
 
-<div id="smartwizard" style="margin: 2rem 0;">
-  <ul class="nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#step-1">
-        <div class="num">1</div>
-        Customer Details
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#step-2">
-        <span class="num">2</span>
-        Products Details
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#step-3">
-        <span class="num">3</span>
-        Shipping Details
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#step-4">
-        <span class="num">4</span>
-        Confirm Order
-      </a>
-    </li>
-  </ul>
+::: tip Interactive Demos Available
+Visit our **[Interactive Demo Page](/jquery-smartwizard/v6/demo)** to explore multiple live examples:
 
-  <div class="tab-content">
-    <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
-      <h3>Customer Details</h3>
-      <p>Please enter your customer information below:</p>
-      <div style="max-width: 500px;">
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Full Name *</label>
-          <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="John Doe" required>
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email Address *</label>
-          <input type="email" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="john@example.com" required>
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Phone Number</label>
-          <input type="tel" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="+1 (555) 123-4567">
-        </div>
-      </div>
-    </div>
-    <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
-      <h3>Products Details</h3>
-      <p>Select the products you wish to order:</p>
-      <div style="max-width: 500px;">
-        <div style="margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 6px;">
-          <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
-            <input type="checkbox" style="width: 18px; height: 18px;">
-            <div>
-              <div style="font-weight: 600;">Product A - $29.99</div>
-              <div style="font-size: 0.875rem; color: #666;">Premium quality product with excellent features</div>
-            </div>
-          </label>
-        </div>
-        <div style="margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 6px;">
-          <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
-            <input type="checkbox" style="width: 18px; height: 18px;">
-            <div>
-              <div style="font-weight: 600;">Product B - $49.99</div>
-              <div style="font-size: 0.875rem; color: #666;">Advanced features for professional use</div>
-            </div>
-          </label>
-        </div>
-        <div style="margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 6px;">
-          <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
-            <input type="checkbox" style="width: 18px; height: 18px;">
-            <div>
-              <div style="font-weight: 600;">Product C - $19.99</div>
-              <div style="font-size: 0.875rem; color: #666;">Budget-friendly option with great value</div>
-            </div>
-          </label>
-        </div>
-      </div>
-    </div>
-    <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
-      <h3>Shipping Details</h3>
-      <p>Enter your shipping address:</p>
-      <div style="max-width: 500px;">
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Street Address *</label>
-          <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="123 Main St" required>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">City *</label>
-            <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="New York" required>
-          </div>
-          <div>
-            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">ZIP Code *</label>
-            <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="10001" required>
-          </div>
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Country *</label>
-          <select style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;" required>
-            <option>United States</option>
-            <option>Canada</option>
-            <option>United Kingdom</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
-      <h3>✅ Confirm Order</h3>
-      <p>Please review your order details before confirming:</p>
-      <div style="max-width: 500px; padding: 1.5rem; background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb;">
-        <h4 style="margin-top: 0; color: #5ea8de;">Order Summary</h4>
-        <p style="margin: 0.5rem 0;"><strong>Customer:</strong> Review your details in step 1</p>
-        <p style="margin: 0.5rem 0;"><strong>Products:</strong> Review your selection in step 2</p>
-        <p style="margin: 0.5rem 0;"><strong>Shipping:</strong> Review your address in step 3</p>
-        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #e5e7eb;">
-          <p style="font-size: 1.125rem; font-weight: 700; margin: 0;">Ready to complete your order?</p>
-          <p style="margin: 0.5rem 0; color: #666;">Click the "Finish" button below to place your order.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+- 🎯 **Basic Demo** - Simple 4-step wizard
+- ✅ **Form Validation** - Wizard with validation
+- 🔄 **Ajax Content** - Dynamic content loading
+- 🌐 **RTL Support** - Right-to-left languages
+- 🎨 **Themes** - Multiple visual themes
 
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-</div>
-
-<script>
-if (typeof window !== 'undefined') {
-  // Load CSS
-  const cssLink = document.createElement('link');
-  cssLink.rel = 'stylesheet';
-  cssLink.href = 'https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css';
-  document.head.appendChild(cssLink);
-  
-  // Load jQuery
-  const jqueryScript = document.createElement('script');
-  jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-  jqueryScript.onload = function() {
-    // Load SmartWizard after jQuery is loaded
-    const swScript = document.createElement('script');
-    swScript.src = 'https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js';
-    swScript.onload = function() {
-      // Initialize SmartWizard after it's loaded
-      $(document).ready(function(){
-        $('#smartwizard').smartWizard({
-          selected: 0,
-          theme: 'arrows',
-          transition: {
-            animation: 'slideHorizontal',
-            speed: 400
-          },
-          toolbar: {
-            position: 'bottom',
-            showNextButton: true,
-            showPreviousButton: true,
-            extraHtml: '<button class="btn btn-success" onclick="alert(\'Thank you! Your order has been placed successfully.\')" style="padding: 0.75rem 1.5rem; background: #5ea8de; color: white; border: none; border-radius: 8px; cursor: pointer; margin-left: 1rem; font-weight: 600;">Finish</button>'
-          }
-        });
-      });
-    };
-    document.head.appendChild(swScript);
-  };
-  document.head.appendChild(jqueryScript);
-}
-</script>
-
-::: tip More Examples
-Check out these additional examples:
-- [Form Validation Example](https://techlaboratory.net/projects/demo/jquery-smart-wizard/v6/validation)
-- [Ajax Content Example](https://techlaboratory.net/projects/demo/jquery-smart-wizard/v6/ajax)
-- [Multiple Wizard Example](https://techlaboratory.net/projects/demo/jquery-smart-wizard/v6/multiple)
-- [Bootstrap Modal Example](https://techlaboratory.net/projects/demo/jquery-smart-wizard/v6/bootstrap-modal)
-- [Right-to-left Language(RTL) Example](https://techlaboratory.net/projects/demo/jquery-smart-wizard/v6/rtl)
+[View All Demos →](/jquery-smartwizard/v6/demo)
 :::
+
+## Screenshots
+
+![jQuery SmartWizard Demo](/images/screenshots/jquery-smartwizard-demo.png)
+
 
 ## Installation
 

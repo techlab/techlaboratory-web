@@ -32,6 +32,9 @@ export default defineConfig({
     cleanUrls: true,
     head: headConfig,
     themeConfig: {
+        search: {
+            provider: 'local'
+        },
         logo: './images/logo.png',
         nav: [
             { text: 'Home', link: '/' },
@@ -60,7 +63,11 @@ export default defineConfig({
         socialLinks: [
             { icon: 'github', link: 'https://github.com/techlab' },
             { icon: 'npm', link: 'https://www.npmjs.com/~dipuraj' }
-        ]
+        ],
+        carbonAds: {
+            code: 'your-carbon-code',
+            placement: 'your-carbon-placement'
+        }
     },
     sitemap: {
         hostname: 'https://techlaboratory.net'

@@ -3,7 +3,7 @@ title: jQuery SmartWizard v5
 description: The awesome step wizard plugin for jQuery
 ---
 
-# jQuery SmartWizard v5
+# jQuery SmartWizard <Badge type="tip" text="v5" />
 
 ::: warning WARNING
 This is a documentation for an old version of jQuery SmartWizard. Please check the [latest version](/jquery-smartwizard/).

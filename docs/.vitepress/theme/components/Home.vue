@@ -6,9 +6,32 @@ interface Product {
 	readMoreLink: string
 	docsLink: string
 	demoLink: string
+	screenshot?: string
 }
 
 const products: Product[] = [
+	{
+		title: 'jQuery Smart Wizard',
+		description: 'The awesome step wizard plugin for jQuery',
+		features: [
+			'Easy to implement and minimal HTML required',
+			'Responsive CSS design',
+			'Bootstrap compatible',
+			'Cool themes included and can be easily customized',
+			'Easy color customization using CSS variables',
+			'Form validation support',
+			'RTL (Right-to-left language) support',
+			'Accessible controls',
+			'External controls support',
+			'Easy ajax content integration',
+			'Auto content height adjustment',
+			'Customizable toolbar and option to provide extra HTML'
+		],
+		readMoreLink: '/jquery-smartwizard',
+		docsLink: '/jquery-smartwizard#documentation',
+		demoLink: '/jquery-smartwizard#demo',
+		screenshot: './images/screenshots/jquery-smartwizard-demo.png'
+	},
 	{
 		title: 'Copify JS',
 		description: 'A modern, cross-platform clipboard utility library for web',
@@ -39,28 +62,7 @@ const products: Product[] = [
 		readMoreLink: '/react-smarttab',
 		docsLink: '/react-smarttab#documentation',
 		demoLink: '/react-smarttab#demo'
-	},
-	{
-		title: 'jQuery Smart Wizard',
-		description: 'The awesome step wizard plugin for jQuery',
-		features: [
-			'Easy to implement and minimal HTML required',
-			'Responsive CSS design',
-			'Bootstrap compatible',
-			'Cool themes included and can be easily customized',
-			'Easy color customization using CSS variables',
-			'Form validation support',
-			'RTL (Right-to-left language) support',
-			'Accessible controls',
-			'External controls support',
-			'Easy ajax content integration',
-			'Auto content height adjustment',
-			'Customizable toolbar and option to provide extra HTML'
-		],
-		readMoreLink: '/jquery-smartwizard',
-		docsLink: '/jquery-smartwizard#documentation',
-		demoLink: '/jquery-smartwizard#demo'
-	},
+	},	
 	{
 		title: 'jQuery Smart Cart',
 		description: 'jQuery Shopping Cart plugin with PayPal payment support',
@@ -163,19 +165,7 @@ const products: Product[] = [
 				     class="product-card" 
 				     :class="`card-${index % 3}`">
 					<div class="card-header">
-						<div class="card-icon">
-							<span v-if="product.title.includes('React')">⚛️</span>
-							<span v-else-if="product.title.includes('Wizard')">🧙</span>
-							<span v-else-if="product.title.includes('Cart')">🛒</span>
-							<span v-else-if="product.title.includes('Tab')">📑</span>
-							<span v-else-if="product.title.includes('Copify')">📋</span>
-							<span v-else>⚙️</span>
-						</div>
-						<div class="card-tags">
-							<span v-if="product.title.includes('React')" class="tag tag-react">React</span>
-							<span v-if="product.title.includes('jQuery')" class="tag tag-jquery">jQuery</span>
-							<span v-if="product.title.includes('CLI')" class="tag tag-cli">CLI</span>
-						</div>
+						<img v-if="product.screenshot" :src="product.screenshot" :alt="product.title + ' screenshot'" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--vp-c-divider);" />
 					</div>
 
 					<h3 class="card-title">{{ product.title }}</h3>
@@ -197,8 +187,14 @@ const products: Product[] = [
 
 					<div class="card-footer">
 						<a :href="product.readMoreLink" class="card-button">
-							<span>Explore</span>
+							Explore
 						</a>
+
+						<div class="card-tags">
+							<span v-if="product.title.includes('React')" class="tag tag-react">React</span>
+							<span v-if="product.title.includes('jQuery')" class="tag tag-jquery">jQuery</span>
+							<span v-if="product.title.includes('CLI')" class="tag tag-cli">CLI</span>
+						</div>
 					</div>
 				</div>
 			</div>

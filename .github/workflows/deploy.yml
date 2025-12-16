@@ -26,8 +26,6 @@ jobs:
       - name: Build
         run: npm run docs:build
         env:
-          VITE_CARBON_SERVE_ID: ${{ secrets.CARBON_SERVE_ID }}
-          VITE_CARBON_PLACEMENT: ${{ secrets.CARBON_PLACEMENT }}
           VITE_GA_TAG_ID: ${{ secrets.GA_TAG_ID }}
 
       - name: Deploy

@@ -417,9 +417,7 @@
 
 /* Card Footer */
 .card-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 1rem;
   text-align: center;
 }
 
@@ -428,7 +426,7 @@
   padding: 0.5rem 1.5rem;
   background: var(--gradient-primary);
   color: white !important;
-  text-decoration: none;
+  text-decoration: none !important;
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -436,7 +434,8 @@
   box-shadow: none;
 }
 
-.card-button:hover {
+.card-button:hover,
+.card-button:focus {
   color: white !important;
   text-decoration: none;
   transform: translateY(-2px);
