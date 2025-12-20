@@ -1,10 +1,11 @@
 ---
 title: jQuery SmartWizard v6 - Demos
 description: Interactive demos of jQuery SmartWizard v6
-layout: home
+layout: page
 aside: false
 ---
 
+<ClientOnly>
 <div class="demo-page-container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;">
 
 <div style="margin-bottom: 2rem;">
@@ -636,3 +637,4 @@ function initializeDemos() {
 </script>
 
 </div> <!-- Close demo-page-container -->
+</ClientOnly>

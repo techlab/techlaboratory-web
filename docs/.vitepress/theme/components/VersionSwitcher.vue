@@ -1,5 +1,5 @@
 <template>
-  <div v-if="versions.length > 0" class="version-switcher">
+  <div v-if="versions && versions.length > 0" class="version-switcher">
     <span class="version-label">Version:</span>
     <select v-model="selected" @change="goToVersion">
       <option 
@@ -14,26 +14,32 @@
 </template>
 
 <script setup>
-import { useRouter, useData } from 'vitepress'
+import { useRouter, useData, withBase } from 'vitepress'
 import { ref, computed, watch } from 'vue'
-import { getVersions, getLatestVersion, isDeprecated } from '../versionConfig.js'
+import { products } from '../siteConfig'
 
 const router = useRouter()
-const { page } = useData()
+const { site } = useData()
+const base = computed(() => site.value.base.replace('/', '').replace('/', ''))
 
-// Make these reactive using computed properties
-const segments = computed(() => page.value.relativePath.split('/'))
+const pagePath = computed(() => router.route.path);
+const segments = computed(() => pagePath.value.split('/').filter(segment => segment.length > 0 && segment != base.value));
+
 const plugin = computed(() => segments.value[0])
 const currentVersion = computed(() => segments.value[1])
 
-// Get versions from centralized config
-const versions = computed(() => getVersions(plugin.value))
-const latestVersion = computed(() => getLatestVersion(plugin.value))
-const selected = ref(currentVersion.value)
+const productData = computed(() => getProductData(plugin.value));
 
+// Get versions from centralized config with null safety
+const versions = computed(() => productData.value?.versions || [])
+const latestVersion = computed(() => versions.value[0] || '')
+const selected = ref(currentVersion.value ?? latestVersion.value)
 // Watch for page changes and update selected version
 watch(currentVersion, (newVersion) => {
-  selected.value = newVersion
+  selected.value = newVersion ?? latestVersion.value
+})
+watch(productData, () => {
+  selected.value = latestVersion.value
 })
 
 // Format version label with indicators
@@ -42,8 +48,6 @@ function getVersionLabel(version) {
   
   if (version === latestVersion.value) {
     label += ' (latest)'
-  } else if (isDeprecated(plugin.value, version)) {
-    label += ' (deprecated)'
   }
   
   return label
@@ -51,6 +55,8 @@ function getVersionLabel(version) {
 
 function goToVersion() {
   const target = selected.value
+
+  console.log(target)
   // Get path segments after version, excluding 'index.md'
   const rest = segments.value
     .slice(2)
@@ -61,8 +67,12 @@ function goToVersion() {
   const newPath = rest 
     ? `/${plugin.value}/${target}/${rest}` 
     : `/${plugin.value}/${target}/`
-  
-  router.go(newPath)
+
+  router.go(withBase(newPath))
+}
+
+function getProductData(pageLink) {
+  return products.filter(product => product.pageLink === pageLink)[0] ?? null;
 }
 </script>
 

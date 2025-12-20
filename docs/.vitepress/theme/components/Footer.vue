@@ -1,10 +1,15 @@
+<script setup>
+import { useData } from 'vitepress'
+const { site } = useData()
+</script>
+
 <template>
   <footer class="tl-footer">
     <div class="tl-container">
       <div class="footer-left">
         <div class="footer-logo">
           <img src="/images/logo.png" alt="TechLaboratory" class="logo-img" />
-          <strong class="footer-title">TechLaboratory</strong>
+          <strong class="footer-title">{{ site.title }}</strong>
         </div>
       </div>
 

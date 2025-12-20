@@ -1,199 +1,139 @@
 <script setup lang="ts">
-interface Product {
-	title: string
-	description: string
-	features: string[]
-	readMoreLink: string
-	docsLink: string
-	demoLink: string
-	screenshot?: string
-}
-
-const products: Product[] = [
-	{
-		title: 'jQuery Smart Wizard',
-		description: 'The awesome step wizard plugin for jQuery',
-		features: [
-			'Easy to implement and minimal HTML required',
-			'Responsive CSS design',
-			'Bootstrap compatible',
-			'Cool themes included and can be easily customized',
-			'Easy color customization using CSS variables',
-			'Form validation support',
-			'RTL (Right-to-left language) support',
-			'Accessible controls',
-			'External controls support',
-			'Easy ajax content integration',
-			'Auto content height adjustment',
-			'Customizable toolbar and option to provide extra HTML'
-		],
-		readMoreLink: '/jquery-smartwizard',
-		docsLink: '/jquery-smartwizard#documentation',
-		demoLink: '/jquery-smartwizard#demo',
-		screenshot: './images/screenshots/jquery-smartwizard-demo.png'
-	},
-	{
-		title: 'Copify JS',
-		description: 'A modern, cross-platform clipboard utility library for web',
-		features: [
-			'Support on all modern browsers',
-			'TypeScript support with comprehensive type definitions',
-			'Fallback mechanisms for different levels of browser support',
-			'Comprehensive error handling with detailed results',
-			'Standalone with zero dependencies',
-			'Lightweight and fast'
-		],
-		readMoreLink: '/copify',
-		docsLink: '/copify#documentation',
-		demoLink: '/copify#demo'
-	},
-	{
-		title: 'React Smart Tab',
-		description: 'The awesome react tab component for ReactJS',
-		features: [
-			'Responsive design',
-			'Standalone CSS',
-			'Bootstrap compatible',
-			'Various themes included',
-			'Customizable CSS',
-			'Easy to implement',
-			'Supports all modern browsers'
-		],
-		readMoreLink: '/react-smarttab',
-		docsLink: '/react-smarttab#documentation',
-		demoLink: '/react-smarttab#demo'
-	},	
-	{
-		title: 'jQuery Smart Cart',
-		description: 'jQuery Shopping Cart plugin with PayPal payment support',
-		features: [
-			'In-built PayPal, Ajax and form submit methods',
-			'Bootstrap support',
-			'Compatible with latest jQuery versions',
-			'Public methods for external function call',
-			'Enhanced event support',
-			'Clean and compact design'
-		],
-		readMoreLink: '/jquery-smartcart',
-		docsLink: '/jquery-smartcart#documentation',
-		demoLink: '/jquery-smartcart#demo'
-	},
-	{
-		title: 'jQuery Smart Tab',
-		description: 'The flexible jQuery tab control plugin',
-		features: [
-			'Responsive design',
-			'Standalone CSS',
-			'Bootstrap compatible',
-			'Various themes included',
-			'URL navigation and tab selection',
-			'Ajax content loading support',
-			'Keyboard navigation',
-			'Auto content height adjustment',
-			'Compatible with all jQuery versions',
-			'Supports all modern browsers',
-			'Auto Progress',
-			'Cool transition animations'
-		],
-		readMoreLink: '/jquery-smarttab',
-		docsLink: '/jquery-smarttab#documentation',
-		demoLink: '/jquery-smarttab#demo'
-	},
-	{
-		title: 'create-jquery-plugin',
-		description: 'CLI for creating ready-to-start modern jQuery Plugins',
-		features: [
-			'Easy-to-use CLI',
-			'CSS and SCSS templates',
-			'Creates ready-to-start local development environment',
-			'Unit testing with Jasmine and Karma'
-		],
-		readMoreLink: '/create-jquery-plugin',
-		docsLink: '/create-jquery-plugin#usage',
-		demoLink: '/create-jquery-plugin#usage'
-	}
-]
+import { products } from '../siteConfig'
+import { withBase } from 'vitepress'
 </script>
 
 <template>
-	<div class="home-container">
-		<!-- Hero Section with Gradient -->
-		<section class="hero-section">
-			<div class="hero-content">
-				<div class="hero-buttons">
-					<div class="hero-badge">JavaScript</div>
-					<div class="hero-badge">React</div>
-					<div class="hero-badge">jQuery</div>
+	<div class="min-h-screen bg-gradient-to-b from-gray-50 dark:from-gray-900 dark:to-gray-800">
+		<!-- Hero Section -->
+		<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+			<div class="text-center">
+				<!-- Hero Badges -->
+				<div class="flex justify-center gap-3 mb-8 flex-wrap">
+					<div class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold shadow-lg">
+						JavaScript
+					</div>
+					<div class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold shadow-lg">
+						React
+					</div>
+					<div class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold shadow-lg">
+						jQuery
+					</div>
 				</div>
 				
-				<h1 class="hero-title">
-					<span class="gradient-text">Smart JavaScript Components for the web</span> 
+				<!-- Hero Title -->
+				<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+					<span class="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent">
+						Smart JavaScript Components for the web
+					</span>
 				</h1>
-				<p class="hero-tagline">
+				
+				<!-- Hero Tagline -->
+				<p class="text-lg  sm:text-xl text-gray-600 dark:text-gray-300 mx-auto mb-12 leading-relaxed">
 					Modern, flexible, and production-ready components with modern UI support.
 					Built by developers, for developers.
 				</p>
 
-				<div class="hero-stats">
-					<div class="stat-item">
-						<div class="stat-number">6+</div>
-						<div class="stat-label">Projects</div>
+				<!-- Hero Stats -->
+				<div class="flex justify-center gap-8 sm:gap-16 flex-wrap">
+					<div class="text-center">
+						<div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent mb-2">
+							6+
+						</div>
+						<div class="text-sm text-gray-600 dark:text-gray-400 font-medium">Projects</div>
 					</div>
-					<div class="stat-item">
-						<div class="stat-number">100%</div>
-						<div class="stat-label">Open Source</div>
+					<div class="text-center">
+						<div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent mb-2">
+							100%
+						</div>
+						<div class="text-sm text-gray-600 dark:text-gray-400 font-medium">Open Source</div>
 					</div>
-					<div class="stat-item">
-						<div class="stat-number">MIT</div>
-						<div class="stat-label">Licensed</div>
+					<div class="text-center">
+						<div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent mb-2">
+							MIT
+						</div>
+						<div class="text-sm text-gray-600 dark:text-gray-400 font-medium">Licensed</div>
 					</div>
 				</div>
-
-				
 			</div>
 		</section>
 
 		<!-- Products Section -->
-		<section class="products-section">
-			<div class="section-header">
-				<h2 class="section-title">Our Projects</h2>
-				<p class="section-subtitle">Explore our collection of modern, well-documented components</p>
+		<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+			<!-- Section Header -->
+			<div class="text-center mb-16">
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+					Our Projects
+				</h2>
+				<p class="text-lg text-gray-600 dark:text-gray-300">
+					Explore our collection of modern, well-documented components
+				</p>
 			</div>
 
-			<div class="products-grid">
-				<div v-for="(product, index) in products" :key="product.title" 
-				     class="product-card" 
-				     :class="`card-${index % 3}`">
-					<div class="card-header">
-						<img v-if="product.screenshot" :src="product.screenshot" :alt="product.title + ' screenshot'" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--vp-c-divider);" />
+			<!-- Products Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div 
+					v-for="(product, index) in products" 
+					:key="product.title"
+					class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:-translate-y-1"
+				>
+					<!-- Product Screenshot -->
+					<div v-if="product.screenshot" class="p-4 bg-gray-50 dark:bg-gray-900">
+						<img 
+							:src="product.screenshot" 
+							:alt="product.title + ' screenshot'" 
+							class="w-full h-auto rounded-lg border border-gray-200 dark:border-gray-700"
+						/>
 					</div>
 
-					<h3 class="card-title">{{ product.title }}</h3>
-					<p class="card-description">{{ product.description }}</p>
+					<!-- Card Content -->
+					<div class="p-6">
+						<!-- Title -->
+						<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+							{{ product.title }}
+						</h3>
+						
+						<!-- Description -->
+						<p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+							{{ product.description }}
+						</p>
 
-					<div class="features-preview">
-						<div v-for="(feature, idx) in product.features.slice(0, 3)" 
-						     :key="idx" 
-						     class="feature-item">
-							<svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-							</svg>
-							<span>{{ feature }}</span>
+						<!-- Features Preview -->
+						<div class="space-y-2 mb-6">
+							<div 
+								v-for="(feature, idx) in product.features.slice(0, 3)" 
+								:key="idx"
+								class="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
+							>
+								<svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>{{ feature }}</span>
+							</div>
+							<div 
+								v-if="product.features.length > 3" 
+								class="text-sm text-blue-600 dark:text-blue-400 font-medium pl-7"
+							>
+								+{{ product.features.length - 3 }} more features
+							</div>
 						</div>
-						<div v-if="product.features.length > 3" class="more-features">
-							+{{ product.features.length - 3 }} more features
-						</div>
-					</div>
 
-					<div class="card-footer">
-						<a :href="product.readMoreLink" class="card-button">
-							Explore
-						</a>
+						<!-- Card Footer -->
+						<div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+							<!-- Explore Button -->
+							<a 
+								:href="withBase(product.pageLink)" 
+								class="px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 no-underline"
+							>
+								Explore
+							</a>
 
-						<div class="card-tags">
-							<span v-if="product.title.includes('React')" class="tag tag-react">React</span>
-							<span v-if="product.title.includes('jQuery')" class="tag tag-jquery">jQuery</span>
-							<span v-if="product.title.includes('CLI')" class="tag tag-cli">CLI</span>
+							<!-- Tags -->
+							<div class="flex gap-2">
+								<span v-for="(tag, index) in product.tags" :key="index" class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-medium">
+									{{ tag }}
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>

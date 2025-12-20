@@ -31,6 +31,7 @@ export default defineConfig({
     base: '/techlaboratory-web/',
     cleanUrls: true,
     head: headConfig,
+    appearance: true, // Enable dark mode toggle
     themeConfig: {
         search: {
             provider: 'local'
