@@ -1,7 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 // Get Google Analytics ID from environment variable
-const GA_TAG_ID = process.env.VITE_GA_TAG_ID
+const GA_TAG_ID = process.env.GA_TAG_ID ?? ''
+const CARBON_SERVE_ID = process.env.CARBON_SERVE_ID ?? ''
+const CARBON_PLACEMENT = process.env.CARBON_PLACEMENT ?? ''
 
 // Build head array conditionally
 const headConfig: any[] = [
@@ -9,28 +11,12 @@ const headConfig: any[] = [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
 ]
 
-// Only add Google Analytics if tag ID is provided
-if (GA_TAG_ID) {
-    headConfig.push(
-        ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GA_TAG_ID}` }],
-        [
-            'script',
-            {},
-            `window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_TAG_ID}');`
-        ]
-    )
-}
-
 export default defineConfig({
     title: 'TechLaboratory',
     description: 'Smart and open-source JavaScript plugins',
     // base: '/',
     base: '/techlaboratory-web/',
     cleanUrls: true,
-    head: headConfig,
     appearance: true, // Enable dark mode toggle
     themeConfig: {
         search: {
@@ -66,10 +52,24 @@ export default defineConfig({
             { icon: 'npm', link: 'https://www.npmjs.com/~dipuraj' }
         ],
         carbonAds: {
-            code: 'your-carbon-code',
-            placement: 'your-carbon-placement'
+            code: CARBON_SERVE_ID,
+            placement: CARBON_PLACEMENT
         }
     },
+    head: [
+        [
+            'script',
+            { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=${GA_TAG_ID}' }
+        ],
+        [
+            'script',
+            {},
+            `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', ${GA_TAG_ID});`
+        ]
+    ],
     sitemap: {
         hostname: 'https://techlaboratory.net'
     },
