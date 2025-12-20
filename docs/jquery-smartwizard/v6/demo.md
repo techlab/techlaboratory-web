@@ -3,21 +3,21 @@ title: jQuery SmartWizard v6 - Demos
 description: Interactive demos of jQuery SmartWizard v6
 layout: page
 aside: false
+head:
+  - - link
+    - rel: stylesheet
+      href: 'https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css'
 ---
 
-<ClientOnly>
-<div class="demo-page-container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;">
+<script setup>
+import DemoHeader from '../../.vitepress/theme/components/DemoHeader.vue'
+</script>
 
-<div style="margin-bottom: 2rem;">
-  <a href="/jquery-smartwizard/v6/" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--vp-c-brand-1); text-decoration: none; font-weight: 600;">
-    ← Back to Documentation
-  </a>
-</div>
+<DemoHeader />
 
-# jQuery SmartWizard <Badge type="tip" text="v6" /> - Interactive Demos
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
 
-<div class="demo-nav" style="margin: 2rem 0; padding: 1rem; background: var(--vp-c-bg-soft); border-radius: 8px; border: 1px solid var(--vp-c-divider);">
-  <div style="margin-bottom: 0.75rem; font-weight: 600; color: var(--vp-c-text-1);">Select a Demo:</div>
+<div style="margin: 2rem 0; padding: 1rem; background: var(--vp-c-bg-soft); border-radius: 8px; border: 1px solid var(--vp-c-divider);">
   <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
     <button onclick="showDemo('basic')" id="btn-basic" class="demo-btn active" style="padding: 0.5rem 1rem; background: var(--vp-c-brand-1); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
       Basic
@@ -38,6 +38,7 @@ aside: false
 </div>
 
 <!-- Basic Demo -->
+<div >
 <div id="demo-basic" class="demo-container">
   <h2>Basic Demo</h2>
   <p>A simple wizard with 4 steps demonstrating the basic functionality of SmartWizard.</p>
@@ -69,7 +70,6 @@ aside: false
         </a>
       </li>
     </ul>
-
     <div class="tab-content">
       <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
         <h3>Customer Details</h3>
@@ -166,7 +166,6 @@ aside: false
         </div>
       </div>
     </div>
-
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
@@ -199,7 +198,6 @@ aside: false
         </a>
       </li>
     </ul>
-
     <div class="tab-content">
       <div id="val-step-1" class="tab-pane" role="tabpanel">
         <h3>Account Information</h3>
@@ -245,7 +243,6 @@ aside: false
         </div>
       </div>
     </div>
-
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 0%"></div>
     </div>
@@ -278,7 +275,6 @@ aside: false
         </a>
       </li>
     </ul>
-
     <div class="tab-content">
       <div id="ajax-step-1" class="tab-pane" role="tabpanel">
         <div class="ajax-content">
@@ -305,7 +301,6 @@ aside: false
         </div>
       </div>
     </div>
-
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 0%"></div>
     </div>
@@ -338,7 +333,6 @@ aside: false
         </a>
       </li>
     </ul>
-
     <div class="tab-content">
       <div id="rtl-step-1" class="tab-pane" role="tabpanel">
         <h3>معلومات شخصية</h3>
@@ -376,7 +370,6 @@ aside: false
         </div>
       </div>
     </div>
-
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 0%"></div>
     </div>
@@ -425,7 +418,6 @@ aside: false
         </a>
       </li>
     </ul>
-
     <div class="tab-content">
       <div id="theme-step-1" class="tab-pane" role="tabpanel">
         <h3>Step 1</h3>
@@ -444,39 +436,19 @@ aside: false
         <p>This is the final step. Each theme provides a unique visual style.</p>
       </div>
     </div>
-
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 0%"></div>
     </div>
   </div>
 </div>
+</div>
+</div> <!-- Close demo-page-container -->
 
-<style>
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
-.demo-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-.demo-btn.active {
-  background: var(--vp-c-brand-1) !important;
-  color: white !important;
-  border-color: var(--vp-c-brand-1) !important;
-}
-</style>
+<ClientOnly>
 
 <script>
 if (typeof window !== 'undefined') {
-  // Load CSS
-  const cssLink = document.createElement('link');
-  cssLink.rel = 'stylesheet';
-  cssLink.href = 'https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css';
-  document.head.appendChild(cssLink);
-  
   // Load jQuery
   const jqueryScript = document.createElement('script');
   jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
@@ -528,7 +500,7 @@ function initializeDemos() {
   // Basic Demo
   $('#smartwizard-basic').smartWizard({
     selected: 0,
-    theme: 'default',
+    theme: 'arrows',
     transition: {
       animation: 'slideHorizontal',
       speed: 400
@@ -635,6 +607,4 @@ function initializeDemos() {
   });
 }
 </script>
-
-</div> <!-- Close demo-page-container -->
 </ClientOnly>

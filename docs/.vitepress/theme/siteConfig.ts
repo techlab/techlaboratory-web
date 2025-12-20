@@ -8,6 +8,7 @@ export interface Product {
     docsLink?: string
     demoLink?: string
     screenshot?: string
+    showOnHome?: boolean
 }
 
 export const products: Product[] = [
@@ -66,6 +67,7 @@ export const products: Product[] = [
         ],
         tags: ['React'],
         pageLink: 'react-smarttab',
+        showOnHome: false,
     },
     {
         title: 'jQuery Smart Cart',

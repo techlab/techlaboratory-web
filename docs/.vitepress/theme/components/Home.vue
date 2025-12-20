@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { products } from '../siteConfig'
 import { withBase } from 'vitepress'
+import { computed } from 'vue'
+
+// Filter products to only show on home page if showOnHome is not false
+const homeProducts = computed(() => products.filter(p => p.showOnHome !== false))
 </script>
 
 <template>
@@ -73,7 +77,7 @@ import { withBase } from 'vitepress'
 			<!-- Products Grid -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				<div 
-					v-for="(product, index) in products" 
+					v-for="(product, index) in homeProducts" 
 					:key="product.title"
 					class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:-translate-y-1"
 				>

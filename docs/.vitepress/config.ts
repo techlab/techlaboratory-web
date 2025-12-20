@@ -28,13 +28,8 @@ export default defineConfig({
             {
                 text: 'JavaScript',
                 items: [
-                    { text: 'Copify JS', link: '/copify/' }
-                ]
-            },
-            {
-                text: 'React Components',
-                items: [
-                    { text: 'React Smart Tab', link: '/react-smarttab/' }
+                    { text: 'Copify JS', link: '/copify/' },
+                    { text: 'create-jquery-plugin', link: '/create-jquery-plugin/' }
                 ]
             },
             {
@@ -43,7 +38,6 @@ export default defineConfig({
                     { text: 'jQuery Smart Wizard', link: '/jquery-smartwizard/' },
                     { text: 'jQuery Smart Cart', link: '/jquery-smartcart/' },
                     { text: 'jQuery Smart Tab', link: '/jquery-smarttab/' },
-                    { text: 'create-jquery-plugin', link: '/create-jquery-plugin/' }
                 ]
             }
         ],
@@ -68,7 +62,9 @@ export default defineConfig({
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', ${GA_TAG_ID});`
-        ]
+        ],
+        ['meta', { name: 'theme-color', content: '#0b69ff' }],
+        ['link', { rel: 'icon', href: '/favicon.ico' }]
     ],
     sitemap: {
         hostname: 'https://techlaboratory.net'
