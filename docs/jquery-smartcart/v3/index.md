@@ -1,17 +1,22 @@
 ---
 title: jQuery SmartCart v3
 description: jQuery Shopping Cart plugin with PayPal payment support
+head:
+  - - meta
+    - name: description
+      content: jQuery Shopping Cart plugin with PayPal payment support
+  - - meta
+    - name: keywords
+      content: jQuery, jQuery plugin, jQuery Shopping Cart, jQuery SmartCart
 ---
 
-# jQuery SmartCart v3
+# jQuery SmartCart <span class="text-gray-400">v3</span>
 
-jQuery Shopping Cart plugin with PayPal payment support. jQuery Smart Cart is an interactive and user-friendly jQuery Shopping Cart plugin with PayPal payment support. Has built-in support for form submit, Ajax submit and PayPal submit of the cart items.
+jQuery Shopping Cart plugin with PayPal payment support
+<hr>
 
-## Demo
+jQuery Smart Cart is an interactive and user-friendly jQuery Shopping Cart plugin with PayPal payment support. Has built-in support for form submit, Ajax submit and PayPal submit of the cart items.
 
-::: tip Coming Soon
-Interactive demos will be added here.
-:::
 
 ## Installation
 
@@ -187,6 +192,25 @@ $('#smartcart').smartCart({
 
 ## Parameters
 
+### Core Parameters
+
+| Parameter | Description | Values | Default |
+|-----------|-------------|--------|---------|
+| `cart` | Initial products on cart | Object Array | `[]` |
+| `resultName` | Submit name of the cart parameter | String | `'cart_list'` |
+| `theme` | Theme for the cart (related CSS needs to be included for themes other than default) | String | `'default'` |
+| `combineProducts` | Combine similar products on cart | `true`/`false` | `true` |
+| `highlightEffect` | Highlight effect on adding/updating product in cart | `true`/`false` | `true` |
+| `cartItemTemplate` | Template to show items in the cart | String | See below |
+| `cartItemQtyTemplate` | Template to show item quantity in the cart | String | `{display_price} × {display_quantity} = {display_amount}` |
+| `productContainerSelector` | Selector used to identify the product container in the product list | String | `'.sc-product-item'` |
+| `productElementSelector` | Selector used to identify the elements whose values to be included with the cart object | String | `'*'` |
+| `addCartSelector` | Selector used to identify the "Add To Cart" button | String | `'.sc-add-to-cart'` |
+| `debug` | Enable/disable debug mode | Boolean | `false` |
+
+### Detailed Parameter Descriptions
+
+
 ### productContainerSelector
 **(string)** CSS selector for product container. Default: `'.sc-product-item'`
 
@@ -259,20 +283,18 @@ $('#smartcart').smartCart({
 
 ## Events
 
-### cartEmpty
-Triggers when the cart is empty
+### Event Descriptions
 
-### itemAdded
-Triggers when an item is added to cart
+| Event | Description | Parameters |
+|-------|-------------|------------|
+| `itemAdded` | Triggers when an item is added to the cart | **Object**: object of the product |
+| `itemUpdated` | Triggers when an item is updated on the cart | **Object**: object of the product |
+| `itemRemoved` | Triggers when an item is removed from the cart | **Object**: object of the product |
+| `cartCleared` | Triggers when the cart is cleared | None |
+| `quantityUpdated` | Triggers when an item quantity is updated on the cart | **Object**: object of the product<br>**Integer**: new quantity value |
+| `cartEmpty` | Triggers when the cart is empty | None |
+| `cartSubmitted` | Triggers when the cart is submitted | **Object Array**: object array of full cart |
 
-### itemRemoved
-Triggers when an item is removed from cart
-
-### quantityUpdated
-Triggers when item quantity is updated
-
-### checkoutClicked
-Triggers when checkout button is clicked
 
 ### Example: Event Initialize
 

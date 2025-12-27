@@ -1,49 +1,174 @@
 ---
 title: jQuery SmartWizard v6 - Demos
 description: Interactive demos of jQuery SmartWizard v6
-layout: page
-aside: false
 head:
+  - - meta
+    - name: description
+      content: The awesome step wizard plugin for jQuery
+  - - meta
+    - name: keywords
+      content: wizard, step, jQuery, jQuery plugin, jQuery wizard, jQuery step wizard
   - - link
     - rel: stylesheet
       href: 'https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css'
+  - - link
+    - rel: stylesheet
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'
 ---
 
-<script setup>
-import DemoHeader from '../../.vitepress/theme/components/DemoHeader.vue'
-</script>
+# jQuery SmartWizard <span class="text-gray-400">v6</span> Demos
 
-<DemoHeader />
+Interactive demos of jQuery SmartWizard
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-
-<div style="margin: 2rem 0; padding: 1rem; background: var(--vp-c-bg-soft); border-radius: 8px; border: 1px solid var(--vp-c-divider);">
-  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-    <button onclick="showDemo('basic')" id="btn-basic" class="demo-btn active" style="padding: 0.5rem 1rem; background: var(--vp-c-brand-1); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
-      Basic
-    </button>
-    <button onclick="showDemo('validation')" id="btn-validation" class="demo-btn" style="padding: 0.5rem 1rem; background: var(--vp-c-bg-mute); color: var(--vp-c-text-1); border: 1px solid var(--vp-c-divider); border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
-      Form Validation
-    </button>
-    <button onclick="showDemo('ajax')" id="btn-ajax" class="demo-btn" style="padding: 0.5rem 1rem; background: var(--vp-c-bg-mute); color: var(--vp-c-text-1); border: 1px solid var(--vp-c-divider); border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
-      Ajax Content
-    </button>
-    <button onclick="showDemo('rtl')" id="btn-rtl" class="demo-btn" style="padding: 0.5rem 1rem; background: var(--vp-c-bg-mute); color: var(--vp-c-text-1); border: 1px solid var(--vp-c-divider); border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
-      RTL Support
-    </button>
-    <button onclick="showDemo('themes')" id="btn-themes" class="demo-btn" style="padding: 0.5rem 1rem; background: var(--vp-c-bg-mute); color: var(--vp-c-text-1); border: 1px solid var(--vp-c-divider); border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
-      Themes
-    </button>
-  </div>
+:::details jQuery SmartWizard Settings
+<div class="settings-panel grid grid-cols-3 gap-4 p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+    <!-- Theme & Animation -->
+    <div class="settings-section">
+      <h4>Appearance</h4>
+      <div class="form-group">
+        <label for="theme_selector">Theme</label>
+        <select id="theme_selector">
+          <option value="basic">Basic</option>
+          <option value="arrows" selected>Arrows</option>
+          <option value="square">Square</option>
+          <option value="round">Round</option>
+          <option value="dots">Dots</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="animation">Transition</label>
+        <select id="animation">
+          <optgroup label="Buit-in Animations">
+            <option value="none">None</option>
+            <option value="fade">Fade</option>
+            <option value="slideHorizontal" selected="">Slide Horizontal</option>
+            <option value="slideVertical">Slide Vertical</option>
+            <option value="slideSwing">Slide Swing</option>
+          </optgroup>
+          <optgroup label="CSS Animations (External Plugin)">
+            <option value="cssSlideH">Slide Horizontal</option>
+            <option value="cssSlideV">Slide Vertical</option>
+            <option value="cssFade">Fade</option>
+            <option value="cssFadeSlideH">Fade + Slide Horizontal</option>
+            <option value="cssFadeSlideV">Fade + Slide Vertical</option>
+            <option value="cssFadeSlideCorner1">Fade + Slide Corner 1</option>
+            <option value="cssFadeSlideCorner2">Fade + Slide Corner 2</option>
+            <option value="cssBounce">Bounce</option>
+            <option value="cssBounceSlideH">Bounce + Slide Horizontal</option>
+            <option value="cssBounceSlideV">Bounce + Slide Vertical</option>
+            <option value="cssBackSlideH">Back + Slide Horizontal</option>
+            <option value="cssBackSlideV">Back + Slide Vertical</option>
+            <option value="cssFlipH">Flip Horizontal</option>
+            <option value="cssFlipV">Flip Vertical</option>
+            <option value="cssLightspeed">Lightspeed</option>
+            <option value="cssRotate">Rotate</option>
+            <option value="cssRotateClock">Rotate Clockwise</option>
+            <option value="cssRotateAntiClock">Rotate Anti Clockwise</option>
+            <option value="cssZoom">Zoom</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="theme_colors">Colors</label>
+          <select id="theme_colors" aria-label="">
+            <!-- <option value="custom" selected>Custom</option> -->
+          <option value="Blue (Default)" data-colors="eyItLXN3LXRvb2xiYXItYnRuLWJhY2tncm91bmQtY29sb3IiOiIjMDA5RUY3IiwiLS1zdy1hbmNob3ItZGVmYXVsdC1wcmltYXJ5LWNvbG9yIjoiI2Y4ZjlmYSIsIi0tc3ctYW5jaG9yLWRlZmF1bHQtc2Vjb25kYXJ5LWNvbG9yIjoiI2IwYjBiMSIsIi0tc3ctYW5jaG9yLWFjdGl2ZS1wcmltYXJ5LWNvbG9yIjoiIzAwOUVGNyIsIi0tc3ctYW5jaG9yLWFjdGl2ZS1zZWNvbmRhcnktY29sb3IiOiIjZmZmZmZmIiwiLS1zdy1hbmNob3ItZG9uZS1wcmltYXJ5LWNvbG9yIjoiIzkwZDRmYSIsIi0tc3ctYW5jaG9yLWRvbmUtc2Vjb25kYXJ5LWNvbG9yIjoiI2ZlZmVmZSIsIi0tc3ctcHJvZ3Jlc3MtY29sb3IiOiIjMDA5RUY3IiwiLS1zdy1sb2FkZXItY29sb3IiOiIjMDA5RUY3In0=">Blue (Default)</option><option value="Green" data-colors="eyItLXN3LWJvcmRlci1jb2xvciI6IiNlZWVlZWUiLCItLXN3LXRvb2xiYXItYnRuLWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctdG9vbGJhci1idG4tYmFja2dyb3VuZC1jb2xvciI6IiMwMDg5MzEiLCItLXN3LWFuY2hvci1kZWZhdWx0LXByaW1hcnktY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1hbmNob3ItZGVmYXVsdC1zZWNvbmRhcnktY29sb3IiOiIjYjBiMGIxIiwiLS1zdy1hbmNob3ItYWN0aXZlLXByaW1hcnktY29sb3IiOiIjNzhjMDQzIiwiLS1zdy1hbmNob3ItYWN0aXZlLXNlY29uZGFyeS1jb2xvciI6IiNmZmZmZmYiLCItLXN3LWFuY2hvci1kb25lLXByaW1hcnktY29sb3IiOiIjNTg4ODM1IiwiLS1zdy1hbmNob3ItZG9uZS1zZWNvbmRhcnktY29sb3IiOiIjYzJjMmMyIiwiLS1zdy1hbmNob3ItZGlzYWJsZWQtcHJpbWFyeS1jb2xvciI6IiNmOGY5ZmEiLCItLXN3LWFuY2hvci1kaXNhYmxlZC1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZXJyb3ItcHJpbWFyeS1jb2xvciI6IiNkYzM1NDUiLCItLXN3LWFuY2hvci1lcnJvci1zZWNvbmRhcnktY29sb3IiOiIjZmZmZmZmIiwiLS1zdy1hbmNob3Itd2FybmluZy1wcmltYXJ5LWNvbG9yIjoiI2ZmYzEwNyIsIi0tc3ctYW5jaG9yLXdhcm5pbmctc2Vjb25kYXJ5LWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctcHJvZ3Jlc3MtY29sb3IiOiIjNzhjMDQzIiwiLS1zdy1wcm9ncmVzcy1iYWNrZ3JvdW5kLWNvbG9yIjoiI2Y4ZjlmYSIsIi0tc3ctbG9hZGVyLWNvbG9yIjoiIzc4YzA0MyIsIi0tc3ctbG9hZGVyLWJhY2tncm91bmQtY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1sb2FkZXItYmFja2dyb3VuZC13cmFwcGVyLWNvbG9yIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpIn0=">Green</option><option value="Yellow" data-colors="eyItLXN3LWJvcmRlci1jb2xvciI6IiNlZWVlZWUiLCItLXN3LXRvb2xiYXItYnRuLWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctdG9vbGJhci1idG4tYmFja2dyb3VuZC1jb2xvciI6IiNlNGE3MDciLCItLXN3LWFuY2hvci1kZWZhdWx0LXByaW1hcnktY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1hbmNob3ItZGVmYXVsdC1zZWNvbmRhcnktY29sb3IiOiIjYjBiMGIxIiwiLS1zdy1hbmNob3ItYWN0aXZlLXByaW1hcnktY29sb3IiOiIjZmJiZDE5IiwiLS1zdy1hbmNob3ItYWN0aXZlLXNlY29uZGFyeS1jb2xvciI6IiNmZmZmZmYiLCItLXN3LWFuY2hvci1kb25lLXByaW1hcnktY29sb3IiOiIjZTRhNzA3IiwiLS1zdy1hbmNob3ItZG9uZS1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZGlzYWJsZWQtcHJpbWFyeS1jb2xvciI6IiNmOGY5ZmEiLCItLXN3LWFuY2hvci1kaXNhYmxlZC1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZXJyb3ItcHJpbWFyeS1jb2xvciI6IiNkYzM1NDUiLCItLXN3LWFuY2hvci1lcnJvci1zZWNvbmRhcnktY29sb3IiOiIjZmZmZmZmIiwiLS1zdy1hbmNob3Itd2FybmluZy1wcmltYXJ5LWNvbG9yIjoiI2ZmYzEwNyIsIi0tc3ctYW5jaG9yLXdhcm5pbmctc2Vjb25kYXJ5LWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctcHJvZ3Jlc3MtY29sb3IiOiIjZmJiZDE5IiwiLS1zdy1wcm9ncmVzcy1iYWNrZ3JvdW5kLWNvbG9yIjoiI2Y4ZjlmYSIsIi0tc3ctbG9hZGVyLWNvbG9yIjoiI2ZiYmQxOSIsIi0tc3ctbG9hZGVyLWJhY2tncm91bmQtY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1sb2FkZXItYmFja2dyb3VuZC13cmFwcGVyLWNvbG9yIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpIn0=">Yellow</option><option value="Red" data-colors="eyItLXN3LWJvcmRlci1jb2xvciI6IiNlZWVlZWUiLCItLXN3LXRvb2xiYXItYnRuLWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctdG9vbGJhci1idG4tYmFja2dyb3VuZC1jb2xvciI6IiNmNDQzMzYiLCItLXN3LWFuY2hvci1kZWZhdWx0LXByaW1hcnktY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1hbmNob3ItZGVmYXVsdC1zZWNvbmRhcnktY29sb3IiOiIjYjBiMGIxIiwiLS1zdy1hbmNob3ItYWN0aXZlLXByaW1hcnktY29sb3IiOiIjZjQ0MzM2IiwiLS1zdy1hbmNob3ItYWN0aXZlLXNlY29uZGFyeS1jb2xvciI6IiNmZmZmZmYiLCItLXN3LWFuY2hvci1kb25lLXByaW1hcnktY29sb3IiOiIjZjg4NzdmIiwiLS1zdy1hbmNob3ItZG9uZS1zZWNvbmRhcnktY29sb3IiOiIjZmVmZWZlIiwiLS1zdy1hbmNob3ItZGlzYWJsZWQtcHJpbWFyeS1jb2xvciI6IiNmOGY5ZmEiLCItLXN3LWFuY2hvci1kaXNhYmxlZC1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZXJyb3ItcHJpbWFyeS1jb2xvciI6IiNkYzM1NDUiLCItLXN3LWFuY2hvci1lcnJvci1zZWNvbmRhcnktY29sb3IiOiIjZmZmZmZmIiwiLS1zdy1hbmNob3Itd2FybmluZy1wcmltYXJ5LWNvbG9yIjoiI2ZmYzEwNyIsIi0tc3ctYW5jaG9yLXdhcm5pbmctc2Vjb25kYXJ5LWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctcHJvZ3Jlc3MtY29sb3IiOiIjZjQ0MzM2IiwiLS1zdy1wcm9ncmVzcy1iYWNrZ3JvdW5kLWNvbG9yIjoiI2Y4ZjlmYSIsIi0tc3ctbG9hZGVyLWNvbG9yIjoiI2Y0NDMzNiIsIi0tc3ctbG9hZGVyLWJhY2tncm91bmQtY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1sb2FkZXItYmFja2dyb3VuZC13cmFwcGVyLWNvbG9yIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpIn0=">Red</option><option value="Lite Blue" data-colors="eyItLXN3LWJvcmRlci1jb2xvciI6IiNlZWVlZWUiLCItLXN3LXRvb2xiYXItYnRuLWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctdG9vbGJhci1idG4tYmFja2dyb3VuZC1jb2xvciI6IiMwY2I2ZDgiLCItLXN3LWFuY2hvci1kZWZhdWx0LXByaW1hcnktY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1hbmNob3ItZGVmYXVsdC1zZWNvbmRhcnktY29sb3IiOiIjYjBiMGIxIiwiLS1zdy1hbmNob3ItYWN0aXZlLXByaW1hcnktY29sb3IiOiIjMDBkNWZmIiwiLS1zdy1hbmNob3ItYWN0aXZlLXNlY29uZGFyeS1jb2xvciI6IiNmZmZmZmYiLCItLXN3LWFuY2hvci1kb25lLXByaW1hcnktY29sb3IiOiIjMGNiNmQ4IiwiLS1zdy1hbmNob3ItZG9uZS1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZGlzYWJsZWQtcHJpbWFyeS1jb2xvciI6IiNmOGY5ZmEiLCItLXN3LWFuY2hvci1kaXNhYmxlZC1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZXJyb3ItcHJpbWFyeS1jb2xvciI6IiNkYzM1NDUiLCItLXN3LWFuY2hvci1lcnJvci1zZWNvbmRhcnktY29sb3IiOiIjZmZmZmZmIiwiLS1zdy1hbmNob3Itd2FybmluZy1wcmltYXJ5LWNvbG9yIjoiI2ZmYzEwNyIsIi0tc3ctYW5jaG9yLXdhcm5pbmctc2Vjb25kYXJ5LWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctcHJvZ3Jlc3MtY29sb3IiOiIjMGRjYWYwIiwiLS1zdy1wcm9ncmVzcy1iYWNrZ3JvdW5kLWNvbG9yIjoiI2Y4ZjlmYSIsIi0tc3ctbG9hZGVyLWNvbG9yIjoiIzBkY2FmMCIsIi0tc3ctbG9hZGVyLWJhY2tncm91bmQtY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1sb2FkZXItYmFja2dyb3VuZC13cmFwcGVyLWNvbG9yIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpIn0=">Lite Blue</option><option value="Dark" data-colors="eyItLXN3LWJvcmRlci1jb2xvciI6IiNlZWVlZWUiLCItLXN3LXRvb2xiYXItYnRuLWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctdG9vbGJhci1idG4tYmFja2dyb3VuZC1jb2xvciI6IiMwYTI3MzAiLCItLXN3LWFuY2hvci1kZWZhdWx0LXByaW1hcnktY29sb3IiOiIjNzU3NTc1IiwiLS1zdy1hbmNob3ItZGVmYXVsdC1zZWNvbmRhcnktY29sb3IiOiIjYjBiMGIxIiwiLS1zdy1hbmNob3ItYWN0aXZlLXByaW1hcnktY29sb3IiOiIjMDAwMDAwIiwiLS1zdy1hbmNob3ItYWN0aXZlLXNlY29uZGFyeS1jb2xvciI6IiNmZmZmZmYiLCItLXN3LWFuY2hvci1kb25lLXByaW1hcnktY29sb3IiOiIjMzMzMzMzIiwiLS1zdy1hbmNob3ItZG9uZS1zZWNvbmRhcnktY29sb3IiOiIjYWFhYWFhIiwiLS1zdy1hbmNob3ItZGlzYWJsZWQtcHJpbWFyeS1jb2xvciI6IiNmOGY5ZmEiLCItLXN3LWFuY2hvci1kaXNhYmxlZC1zZWNvbmRhcnktY29sb3IiOiIjZGJlMGU1IiwiLS1zdy1hbmNob3ItZXJyb3ItcHJpbWFyeS1jb2xvciI6IiNkYzM1NDUiLCItLXN3LWFuY2hvci1lcnJvci1zZWNvbmRhcnktY29sb3IiOiIjZmZmZmZmIiwiLS1zdy1hbmNob3Itd2FybmluZy1wcmltYXJ5LWNvbG9yIjoiI2ZmYzEwNyIsIi0tc3ctYW5jaG9yLXdhcm5pbmctc2Vjb25kYXJ5LWNvbG9yIjoiI2ZmZmZmZiIsIi0tc3ctcHJvZ3Jlc3MtY29sb3IiOiIjMGEyNzMwIiwiLS1zdy1wcm9ncmVzcy1iYWNrZ3JvdW5kLWNvbG9yIjoiI2Y4ZjlmYSIsIi0tc3ctbG9hZGVyLWNvbG9yIjoiIzBhMjczMCIsIi0tc3ctbG9hZGVyLWJhY2tncm91bmQtY29sb3IiOiIjZjhmOWZhIiwiLS1zdy1sb2FkZXItYmFja2dyb3VuZC13cmFwcGVyLWNvbG9yIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpIn0=">Dark</option></select>
+      </div>
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="is_justified" checked>
+          <span>Justified Layout</span>
+        </label>
+      </div>
+    </div>
+    <div class="">
+      <!-- Anchor Settings -->
+      <h4>Anchor Settings</h4>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="anchor_navigation" value="1" checked="">
+        <label class="form-check-label align-middle" for="anchor_navigation">Enable Navigation</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="enableNavigationAlways" value="1">
+        <label class="form-check-label align-middle" for="enableNavigationAlways">Enable Navigation Always</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="enableDoneState" value="1" checked="">
+        <label class="form-check-label align-middle" for="enableDoneState">Enable Done State</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="unDoneOnBackNavigation" value="1">
+        <label class="form-check-label align-middle" for="unDoneOnBackNavigation">Undone On Back Navigation</label>
+      </div>
+      <div class="form-check mb-5">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="enableDoneStateNavigation" value="1" checked="">
+        <label class="form-check-label align-middle" for="enableDoneStateNavigation">Enable Done State Navigation</label>
+      </div>
+      <!-- Toolbar Settings -->
+      <h4>Toolbar Settings</h4>
+      <div class="form-group">
+        <label for="toolbar-position">Position</label>
+        <select id="toolbar-position" name="toolbar-position">
+          <option value="none">None</option>
+          <option value="top">Top</option>
+          <option value="bottom">Bottom</option>
+          <option value="both" selected>Both</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="toolbar-showNextButton" value="1" checked="">
+        <label class="form-check-label align-middle" for="toolbar-showNextButton">Show Next Button</label>
+      </div>
+      <div class="form-check mb-5">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="toolbar-showPreviousButton" value="1" checked="">
+        <label class="form-check-label align-middle" for="toolbar-showPreviousButton">Show Previous Button</label>
+      </div>
+    </div>
+    <!-- Controls -->
+    <div class="settings-section">
+      <h4>Controls</h4>
+        <div class="button-group">
+          <button class="btn btn-secondary" id="prev-btn" disabled>Previous</button>
+          <button class="btn btn-secondary" id="next-btn">Next</button>
+          <button class="btn btn-danger" id="reset-btn">Reset</button>
+        </div>
+        <div class="button-group mb-5">
+          <div class="input-group input-group-sm mt-2">
+            <select class="form-select" id="got_to_step" aria-label="Select step number">
+              <option selected="">Choose step...</option>
+              <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <button class="btn btn-primary" id="btn-go-to" type="button">Go</button>
+            <button class="btn btn-danger" id="btn-go-to-forced" type="button">Force Go</button>
+          </div>
+      </div>
+      <!-- Other Settings -->
+      <h4>Other Settings</h4>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="key_navigation" value="1" checked="">
+        <label class="form-check-label align-middle" for="key_navigation">Keyboard Navigation</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="back_button_support" value="1" checked="">
+        <label class="form-check-label align-middle" for="back_button_support">Back Button Support</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input align-middle option-setting-checkbox" type="checkbox" id="autoAdjustHeight" value="1" checked="">
+        <label class="form-check-label align-middle" for="autoAdjustHeight">Auto Adjust Height</label>
+      </div>
+    </div>
 </div>
+:::
+
+## Basic Example
+A simple wizard with 4 steps demonstrating the basic functionality of SmartWizard
 
 <!-- Basic Demo -->
-<div >
-<div id="demo-basic" class="demo-container">
-  <h2>Basic Demo</h2>
-  <p>A simple wizard with 4 steps demonstrating the basic functionality of SmartWizard.</p>
-  
-  <div id="smartwizard-basic" style="margin: 2rem 0;">
+<div>
+  <div id="smartwizard-basic" class="smartwizard-example">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="#step-1">
@@ -172,12 +297,12 @@ import DemoHeader from '../../.vitepress/theme/components/DemoHeader.vue'
   </div>
 </div>
 
+## Form Validation Example
+This demo shows how to integrate form validation with SmartWizard. Try clicking "Next" without filling the required fields
+
 <!-- Form Validation Demo -->
-<div id="demo-validation" class="demo-container" style="display: none;">
-  <h2>Form Validation Demo</h2>
-  <p>This demo shows how to integrate form validation with SmartWizard. Try clicking "Next" without filling the required fields.</p>
-  
-  <div id="smartwizard-validation" style="margin: 2rem 0;">
+<div>
+  <div id="smartwizard-validation" class="smartwizard-example">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="#val-step-1">
@@ -249,12 +374,12 @@ import DemoHeader from '../../.vitepress/theme/components/DemoHeader.vue'
   </div>
 </div>
 
+## Ajax Content Example
+This demo simulates loading content dynamically via Ajax. Content is loaded when you navigate to each step
+
 <!-- Ajax Content Demo -->
-<div id="demo-ajax" class="demo-container" style="display: none;">
-  <h2>Ajax Content Demo</h2>
-  <p>This demo simulates loading content dynamically via Ajax. Content is loaded when you navigate to each step.</p>
-  
-  <div id="smartwizard-ajax" style="margin: 2rem 0;">
+<div>
+  <div id="smartwizard-ajax" class="smartwizard-example">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="#ajax-step-1">
@@ -307,12 +432,12 @@ import DemoHeader from '../../.vitepress/theme/components/DemoHeader.vue'
   </div>
 </div>
 
+## RTL (Right-to-Left Language) Example
+This demo shows SmartWizard with RTL support for languages like Arabic, Hebrew, etc
+
 <!-- RTL Demo -->
-<div id="demo-rtl" class="demo-container" style="display: none;">
-  <h2>RTL (Right-to-Left) Demo</h2>
-  <p>This demo shows SmartWizard with RTL support for languages like Arabic, Hebrew, etc.</p>
-  
-  <div id="smartwizard-rtl" style="margin: 2rem 0; direction: rtl;">
+<div id="demo-rtl" class="demo-container">
+  <div id="smartwizard-rtl" dir="rtl" class="smartwizard-example">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="#rtl-step-1">
@@ -376,75 +501,6 @@ import DemoHeader from '../../.vitepress/theme/components/DemoHeader.vue'
   </div>
 </div>
 
-<!-- Themes Demo -->
-<div id="demo-themes" class="demo-container" style="display: none;">
-  <h2>Themes Demo</h2>
-  <p>SmartWizard comes with multiple built-in themes. Select a theme to see it in action:</p>
-  
-  <div style="margin: 1.5rem 0; padding: 1rem; background: var(--vp-c-bg-soft); border-radius: 6px;">
-    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Select Theme:</label>
-    <select id="theme-selector" onchange="changeTheme(this.value)" style="padding: 0.5rem 1rem; border: 1px solid var(--vp-c-divider); border-radius: 4px; background: var(--vp-c-bg);">
-      <option value="default">Default</option>
-      <option value="arrows">Arrows</option>
-      <option value="dots">Dots</option>
-      <option value="progress">Progress</option>
-    </select>
-  </div>
-  
-  <div id="smartwizard-themes" style="margin: 2rem 0;">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#theme-step-1">
-          <div class="num">1</div>
-          First
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#theme-step-2">
-          <span class="num">2</span>
-          Second
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#theme-step-3">
-          <span class="num">3</span>
-          Third
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#theme-step-4">
-          <span class="num">4</span>
-          Fourth
-        </a>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div id="theme-step-1" class="tab-pane" role="tabpanel">
-        <h3>Step 1</h3>
-        <p>This is the first step. Notice the theme styling on the navigation.</p>
-      </div>
-      <div id="theme-step-2" class="tab-pane" role="tabpanel">
-        <h3>Step 2</h3>
-        <p>This is the second step. The theme affects how the steps are displayed.</p>
-      </div>
-      <div id="theme-step-3" class="tab-pane" role="tabpanel">
-        <h3>Step 3</h3>
-        <p>This is the third step. Try changing the theme using the dropdown above.</p>
-      </div>
-      <div id="theme-step-4" class="tab-pane" role="tabpanel">
-        <h3>Step 4</h3>
-        <p>This is the final step. Each theme provides a unique visual style.</p>
-      </div>
-    </div>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 0%"></div>
-    </div>
-  </div>
-</div>
-</div>
-</div> <!-- Close demo-page-container -->
-
-
 <ClientOnly>
 
 <script>
@@ -463,31 +519,6 @@ if (typeof window !== 'undefined') {
   };
   document.head.appendChild(jqueryScript);
 
-  // Demo navigation
-  window.showDemo = function(demoType) {
-    // Hide all demos
-    document.querySelectorAll('.demo-container').forEach(el => {
-      el.style.display = 'none';
-    });
-    
-    // Show selected demo
-    document.getElementById('demo-' + demoType).style.display = 'block';
-    
-    // Update button states
-    document.querySelectorAll('.demo-btn').forEach(btn => {
-      btn.classList.remove('active');
-      btn.style.background = 'var(--vp-c-bg-mute)';
-      btn.style.color = 'var(--vp-c-text-1)';
-      btn.style.border = '1px solid var(--vp-c-divider)';
-    });
-    
-    const activeBtn = document.getElementById('btn-' + demoType);
-    activeBtn.classList.add('active');
-    activeBtn.style.background = 'var(--vp-c-brand-1)';
-    activeBtn.style.color = 'white';
-    activeBtn.style.border = 'none';
-  }
-
   // Theme changer
   window.changeTheme = function(theme) {
     if (window.themesWizard) {
@@ -497,8 +528,8 @@ if (typeof window !== 'undefined') {
 }
 
 function initializeDemos() {
-  // Basic Demo
-  $('#smartwizard-basic').smartWizard({
+  // Initialize all SmartWizard instances
+  $('.smartwizard-example').smartWizard({
     selected: 0,
     theme: 'arrows',
     transition: {
@@ -506,64 +537,320 @@ function initializeDemos() {
       speed: 400
     },
     toolbar: {
-      position: 'bottom',
+      position: 'both',
       showNextButton: true,
       showPreviousButton: true
-    }
-  });
-
-  // Validation Demo
-  $('#smartwizard-validation').smartWizard({
-    selected: 0,
-    theme: 'default',
-    transition: {
-      animation: 'fade'
     },
-    toolbar: {
-      position: 'bottom'
-    }
+    anchor: {
+      enableNavigation: true,
+      enableNavigationAlways: false,
+      enableDoneState: true,
+      enableDoneStateNavigation: true
+    },
+    keyboard: {
+      keyNavigation: true,
+      keyLeft: [37],
+      keyRight: [39]
+    },
+    autoAdjustHeight: true,
+    backButtonSupport: true,
+    justified: true
   });
 
-  // Add validation
-  $('#smartwizard-validation').on('leaveStep', function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
-    if (stepDirection === 'forward' && currentStepIndex === 0) {
-      let isValid = true;
-      const username = $('#username').val();
-      const email = $('#email').val();
-      const password = $('#password').val();
-
-      $('#username-error').text('');
-      $('#email-error').text('');
-      $('#password-error').text('');
-
-      if (!username) {
-        $('#username-error').text('Required');
-        isValid = false;
+  // CSS Animations Configuration
+  const cssAnimationList = {
+      cssSlideH: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__slideInLeft',
+          fwdHideCss: 'animate__slideOutRight',
+          bckShowCss: 'animate__slideInRight',
+          bckHideCss: 'animate__slideOutLeft',
+      },
+      cssSlideV: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__slideInDown',
+          fwdHideCss: 'animate__slideOutDown',
+          bckShowCss: 'animate__slideInUp',
+          bckHideCss: 'animate__slideOutUp',
+      },
+      cssFade: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__fadeIn',
+          fwdHideCss: 'animate__fadeOut',
+          bckShowCss: 'animate__fadeIn',
+          bckHideCss: 'animate__fadeOut',
+      },
+      cssFadeSlideH: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__fadeInLeft',
+          fwdHideCss: 'animate__fadeOutRight',
+          bckShowCss: 'animate__fadeInRight',
+          bckHideCss: 'animate__fadeOutLeft',
+      },
+      cssFadeSlideV: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__fadeInDown',
+          fwdHideCss: 'animate__fadeOutDown',
+          bckShowCss: 'animate__fadeInUp',
+          bckHideCss: 'animate__fadeOutUp',
+      },
+      cssFadeSlideCorner1: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__fadeInTopLeft',
+          fwdHideCss: 'animate__fadeOutBottomRight',
+          bckShowCss: 'animate__fadeInBottomRight',
+          bckHideCss: 'animate__fadeOutTopLeft',
+      },
+      cssFadeSlideCorner2: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__fadeInBottomLeft',
+          fwdHideCss: 'animate__fadeOutTopRight',
+          bckShowCss: 'animate__fadeInTopRight',
+          bckHideCss: 'animate__fadeOutBottomLeft',
+      },
+      cssBounce: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__bounceIn',
+          fwdHideCss: 'animate__bounceOut',
+          bckShowCss: 'animate__bounceIn',
+          bckHideCss: 'animate__bounceOut',
+      },
+      cssBounceSlideH: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__bounceInLeft',
+          fwdHideCss: 'animate__bounceOutRight',
+          bckShowCss: 'animate__bounceInRight',
+          bckHideCss: 'animate__bounceOutLeft',
+      },
+      cssBounceSlideV: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__bounceInDown',
+          fwdHideCss: 'animate__bounceOutDown',
+          bckShowCss: 'animate__bounceInUp',
+          bckHideCss: 'animate__bounceOutUp',
+      },
+      cssBackSlideH: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__backInLeft',
+          fwdHideCss: 'animate__backOutRight',
+          bckShowCss: 'animate__backInRight',
+          bckHideCss: 'animate__backOutLeft',
+      },
+      cssBackSlideV: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__backInDown',
+          fwdHideCss: 'animate__backOutDown',
+          bckShowCss: 'animate__backInUp',
+          bckHideCss: 'animate__backOutUp',
+      },
+      cssFlipH: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__flipInY',
+          fwdHideCss: 'animate__flipOutY',
+          bckShowCss: 'animate__flipInY',
+          bckHideCss: 'animate__flipOutY',
+      },
+      cssFlipV: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__flipInX',
+          fwdHideCss: 'animate__flipOutX',
+          bckShowCss: 'animate__flipInX',
+          bckHideCss: 'animate__flipOutX',
+      },
+      cssLightspeed: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__lightSpeedInLeft',
+          fwdHideCss: 'animate__lightSpeedOutRight',
+          bckShowCss: 'animate__lightSpeedInRight',
+          bckHideCss: 'animate__lightSpeedOutLeft',
+      },
+      cssRotate: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__rotateIn',
+          fwdHideCss: 'animate__rotateOut',
+          bckShowCss: 'animate__rotateIn',
+          bckHideCss: 'animate__rotateOut',
+      },
+      cssRotateClock: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__rotateInDownLeft',
+          fwdHideCss: 'animate__rotateOutDownLeft',
+          bckShowCss: 'animate__rotateInUpLeft',
+          bckHideCss: 'animate__rotateOutUpLeft',
+      },
+      cssRotateAntiClock: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__rotateInDownRight',
+          fwdHideCss: 'animate__rotateOutDownRight',
+          bckShowCss: 'animate__rotateInUpRight',
+          bckHideCss: 'animate__rotateOutUpRight',
+      },
+      cssZoom: {
+          prefixCss: 'animate__animated animate__faster',
+          fwdShowCss: 'animate__zoomIn',
+          fwdHideCss: 'animate__zoomOut',
+          bckShowCss: 'animate__zoomIn',
+          bckHideCss: 'animate__zoomOut',
       }
-      if (!email) {
-        $('#email-error').text('Required');
-        isValid = false;
-      }
-      if (!password) {
-        $('#password-error').text('Required');
-        isValid = false;
-      }
+  };
 
-      return isValid;
-    }
+  // Theme selector
+  $('#theme_selector').on('change', function() {
+    // Change theme
+    var options = {
+      theme: $(this).val()
+    };
+    $('.smartwizard-example').smartWizard("setOptions", options);
     return true;
   });
 
-  // Ajax Demo
-  $('#smartwizard-ajax').smartWizard({
-    selected: 0,
-    theme: 'default',
-    transition: {
-      animation: 'slideHorizontal'
-    },
-    toolbar: {
-      position: 'bottom'
+  // Animation selector
+  $('#animation').on('change', function() {
+    const anim = $(this).val();
+    const cssAnim = cssAnimationList[anim];
+    let options = {};
+
+    if (cssAnim) {
+      options = {
+        transition: {
+          animation: 'css',
+          ...cssAnim
+        }
+      };
+    } else {
+      options = {
+        transition: {
+          animation: anim
+        }
+      };
     }
+    $('.smartwizard-example').smartWizard('setOptions', options);
+  });
+
+  // Color theme selector
+  $('#theme_colors').on('change', function() {
+    const colorData = $(this).find(':selected').data('colors');
+    if (colorData) {
+      try {
+        const colorObj = JSON.parse(atob(colorData));
+        $.each(colorObj, function(key, val) {
+          document.documentElement.style.setProperty(key, val);
+        });
+      } catch (e) {
+        console.error('Error parsing color data:', e);
+      }
+    }
+  });
+
+  // Justified checkbox
+  $('#is_justified').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      justified: $(this).prop('checked')
+    });
+  });
+
+  // Anchor settings
+  $('#anchor_navigation').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      anchor: { enableNavigation: $(this).prop('checked') }
+    });
+  });
+
+  $('#enableNavigationAlways').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      anchor: { enableNavigationAlways: $(this).prop('checked') }
+    });
+  });
+
+  $('#enableDoneState').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      anchor: { enableDoneState: $(this).prop('checked') }
+    });
+  });
+
+  $('#unDoneOnBackNavigation').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      anchor: { unDoneOnBackNavigation: $(this).prop('checked') }
+    });
+  });
+
+  $('#enableDoneStateNavigation').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      anchor: { enableDoneStateNavigation: $(this).prop('checked') }
+    });
+  });
+
+  // Toolbar position
+  $('#toolbar-position').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      toolbar: { position: $(this).val() }
+    });
+  });
+
+  // Toolbar buttons
+  $('#toolbar-showNextButton').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      toolbar: { showNextButton: $(this).prop('checked') }
+    });
+  });
+
+  $('#toolbar-showPreviousButton').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      toolbar: { showPreviousButton: $(this).prop('checked') }
+    });
+  });
+
+  // Other settings
+  $('#key_navigation').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      keyboard: { keyNavigation: $(this).prop('checked') }
+    });
+  });
+
+  $('#back_button_support').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      backButtonSupport: $(this).prop('checked')
+    });
+  });
+
+  $('#autoAdjustHeight').on('change', function() {
+    $('.smartwizard-example').smartWizard('setOptions', {
+      autoAdjustHeight: $(this).prop('checked')
+    });
+  });
+
+  // External control buttons
+  $('#prev-btn').on('click', function() {
+    $('.smartwizard-example').smartWizard('prev');
+  });
+
+  $('#next-btn').on('click', function() {
+    $('.smartwizard-example').smartWizard('next');
+  });
+
+  $('#reset-btn').on('click', function() {
+    $('.smartwizard-example').smartWizard('reset');
+  });
+
+  // Go to step
+  $('#btn-go-to').on('click', function() {
+    const stepIndex = parseInt($('#got_to_step').val()) - 1;
+    if (stepIndex >= 0) {
+      $('.smartwizard-example').smartWizard('goToStep', stepIndex);
+    }
+  });
+
+  $('#btn-go-to-forced').on('click', function() {
+    const stepIndex = parseInt($('#got_to_step').val()) - 1;
+    if (stepIndex >= 0) {
+      $('.smartwizard-example').smartWizard('goToStep', stepIndex, true);
+    }
+  });
+
+  // Update button states on step change
+  $('.smartwizard-example').on('showStep', function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
+    $('#prev-btn').prop('disabled', stepPosition === 'first');
+    $('#next-btn').prop('disabled', stepPosition === 'last');
   });
 
   // Simulate Ajax loading
@@ -580,30 +867,6 @@ function initializeDemos() {
         </div>
       `);
     }, 800);
-  });
-
-  // RTL Demo
-  $('#smartwizard-rtl').smartWizard({
-    selected: 0,
-    theme: 'default',
-    transition: {
-      animation: 'slideHorizontal'
-    },
-    toolbar: {
-      position: 'bottom'
-    }
-  });
-
-  // Themes Demo
-  window.themesWizard = $('#smartwizard-themes').smartWizard({
-    selected: 0,
-    theme: 'default',
-    transition: {
-      animation: 'slideHorizontal'
-    },
-    toolbar: {
-      position: 'bottom'
-    }
   });
 }
 </script>

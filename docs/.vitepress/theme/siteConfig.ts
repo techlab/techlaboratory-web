@@ -35,39 +35,8 @@ export const products: Product[] = [
 
         docsLink: 'jquery-smartwizard#documentation',
         demoLink: 'jquery-smartwizard#demo',
-        screenshot: './images/screenshots/jquery-smartwizard-demo.png'
-    },
-    {
-        title: 'Copify JS',
-        description: 'A modern, cross-platform clipboard utility library for web',
-        versions: ['v0'],
-        features: [
-            'Support on all modern browsers',
-            'TypeScript support with comprehensive type definitions',
-            'Fallback mechanisms for different levels of browser support',
-            'Comprehensive error handling with detailed results',
-            'Standalone with zero dependencies',
-            'Lightweight and fast'
-        ],
-        tags: ['JavaScript'],
-        pageLink: 'copify',
-    },
-    {
-        title: 'React Smart Tab',
-        description: 'The awesome react tab component for ReactJS',
-        versions: ['v1'],
-        features: [
-            'Responsive design',
-            'Standalone CSS',
-            'Bootstrap compatible',
-            'Various themes included',
-            'Customizable CSS',
-            'Easy to implement',
-            'Supports all modern browsers'
-        ],
-        tags: ['React'],
-        pageLink: 'react-smarttab',
-        showOnHome: false,
+        // screenshot: './media/jquery-smart-wizard/v6/sw-6-arrows.png'
+        screenshot: './media/jquery-smart-wizard/v6/gif/sw-6-validation.gif'
     },
     {
         title: 'jQuery Smart Cart',
@@ -83,6 +52,7 @@ export const products: Product[] = [
         ],
         tags: ['jQuery'],
         pageLink: 'jquery-smartcart',
+        screenshot: './media/jquery-smart-cart/v3/SmartCart3-Normal.png'
     },
     {
         title: 'jQuery Smart Tab',
@@ -104,6 +74,22 @@ export const products: Product[] = [
         ],
         tags: ['jQuery'],
         pageLink: 'jquery-smarttab',
+        screenshot: './media/jquery-smart-tab/v4/st-v4-basic.gif'
+    },
+    {
+        title: 'Copify JS',
+        description: 'A modern, cross-platform clipboard utility library for web',
+        versions: ['v0'],
+        features: [
+            'Support on all modern browsers',
+            'TypeScript support with comprehensive type definitions',
+            'Fallback mechanisms for different levels of browser support',
+            'Comprehensive error handling with detailed results',
+            'Standalone with zero dependencies',
+            'Lightweight and fast'
+        ],
+        tags: ['JavaScript'],
+        pageLink: 'copify',
     },
     {
         title: 'create-jquery-plugin',
@@ -117,5 +103,23 @@ export const products: Product[] = [
         ],
         tags: ['jQuery', 'CLI'],
         pageLink: 'create-jquery-plugin',
-    }
+        showOnHome: false,
+    },
+    {
+        title: 'React Smart Tab',
+        description: 'The awesome react tab component for ReactJS',
+        versions: ['v1'],
+        features: [
+            'Responsive design',
+            'Standalone CSS',
+            'Bootstrap compatible',
+            'Various themes included',
+            'Customizable CSS',
+            'Easy to implement',
+            'Supports all modern browsers'
+        ],
+        tags: ['React'],
+        pageLink: 'react-smarttab',
+        showOnHome: false,
+    },
 ]

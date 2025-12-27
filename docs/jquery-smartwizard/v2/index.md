@@ -3,19 +3,17 @@ title: jQuery SmartWizard v2
 description: Smart and flexible jQuery step wizard plugin
 ---
 
-# jQuery SmartWizard v2
+# jQuery SmartWizard <span class="text-gray-400">v2</span>
 
-::: danger Deprecated
-This version is deprecated. Please upgrade to [v6](/jquery-smartwizard/v6/).
+Smart and flexible jQuery step wizard plugin
+<hr>
+
+::: warning Unmaintained Version
+This version is not maintained anymore. Please use the [latest version](/jquery-smartwizard/).
 :::
 
 Smart Wizard is a flexible jQuery plugin for wizard-like interface.
 
-## Demo
-
-::: tip Coming Soon
-Interactive demos will be added here. For now, check out the [v6 demos](/jquery-smartwizard/v6/#demo).
-:::
 
 ## Downloads
 
@@ -67,6 +65,36 @@ $('#wizard').smartWizard({
   onFinish: null // Triggers when Finish button is clicked
 });
 ```
+
+## Parameters
+
+### Parameter Descriptions
+
+| Parameter | Description | Values | Default |
+|-----------|-------------|--------|---------|
+| `selected` | Specify the selected step | integer | `0` |
+| `keyNavigation` | Enable/disable key navigation (left/right keys are used if enabled) | `true` = enabled<br>`false` = disabled | `true` |
+| `enableAllSteps` | Enable/disable all steps on first load | `true` = enabled<br>`false` = disabled | `false` |
+| `transitionEffect` | Animation effect on step navigation | `none`/`fade`/`slide`/`slideleft` | `fade` |
+| `contentURL` | Setting this property will enable ajax content loading. Setting `null` will disable ajax contents | `null` or a valid URL | `null` |
+| `contentCache` | Enable caching of the content on ajax content mode. Contents are fetched from the URL only on first load of the step | `true` = enabled<br>`false` = disabled | `true` |
+| `cycleSteps` | Allow cycling of step navigation | `true` = enabled<br>`false` = disabled | `false` |
+| `enableFinishButton` | Make the finish button enabled always | `true` = enabled<br>`false` = disabled | `false` |
+| `errorSteps` | An array of step numbers to highlight as error steps | Array of integers (e.g., `[2, 4]`) | `[]` |
+| `labelNext` | Label for Next button | String | `'Next'` |
+| `labelPrevious` | Label for Previous button | String | `'Previous'` |
+| `labelFinish` | Label for Finish button | String | `'Finish'` |
+
+## Events
+
+### Event Descriptions
+
+| Event | Description | Parameters | Default |
+|-------|-------------|------------|---------|
+| `onLeaveStep` | Triggers when leaving a step.<br><br>This is a decision-making event - based on its function return value (`true`/`false`), the current step navigation can be cancelled. | **Object**: object of the step anchor element. You can access the step number and step body element using this object | `null` |
+| `onShowStep` | Triggers when showing a step.<br><br>This is a decision-making event - based on its function return value (`true`/`false`), the current step navigation can be cancelled. | **Object**: object of the step anchor element. You can access the step number and step body element using this object | `null` |
+| `onFinish` | Triggers when the Finish button is clicked.<br><br>This is a decision-making event - based on its function return value (`true`/`false`), further actions can be cancelled.<br><br>**Note**: If the validation fails, you can cancel form submission and show an error message (see the form validation example).<br><br>If not set, clicking the finish button will submit the form in which the wizard is placed, and do nothing if a parent form is not found. | **Object Array**: an array of the object of all the step anchor elements | `null` |
+
 
 ## Installation
 
@@ -178,7 +206,90 @@ $(document).ready(function() {
 
 ## Input Validation
 
-Smart Wizard v2 provides easy step input validation options and the ability to highlight error steps.
+### Step Validation Example
+
+```javascript
+$(document).ready(function(){
+  // Smart Wizard
+  $('#wizard').smartWizard({
+    onLeaveStep: leaveAStepCallback,
+    onFinish: onFinishCallback
+  });
+
+  function leaveAStepCallback(obj){
+    var step_num = obj.attr('rel'); // get the current step number
+    return validateSteps(step_num); // return false to stay on step and true to continue navigation
+  }
+
+  function onFinishCallback(){
+    if(validateAllSteps()){
+      $('form').submit();
+    }
+  }
+
+  // Your Step validation logic
+  function validateSteps(stepnumber){
+    var isStepValid = true;
+    // validate step 1
+    if(stepnumber == 1){
+      // Your step validation logic
+      // set isStepValid = false if has errors
+    }
+    // ... validate other steps
+    return isStepValid;
+  }
+
+  function validateAllSteps(){
+    var isStepValid = true;
+    // all step validation logic
+    return isStepValid;
+  }
+});
+```
+
+## Highlight Error Steps
+
+You can highlight specific steps as error steps using the `setError` method:
+
+```javascript
+$('#wizard').smartWizard('setError', {stepnum: 3, iserror: true});
+```
+
+### Example Implementation
+
+```javascript
+$(document).ready(function() {
+  // Initialize Smart Wizard
+  $('#wizard').smartWizard();
+
+  function setError(stepnumber){
+    $('#wizard').smartWizard('setError', {stepnum: stepnumber, iserror: true});
+  }
+});
+```
+
+## Show Message Inside the Wizard
+
+Display messages inside the wizard using the `showMessage` method:
+
+```javascript
+$('#wizard').smartWizard('showMessage', 'Hello! World');
+```
+
+### Example Implementation
+
+```javascript
+$(document).ready(function() {
+  // Initialize Smart Wizard
+  $('#wizard').smartWizard();
+
+  function showWizardMessage(){
+    var myMessage = 'Hello this is my message';
+    // You can call this line wherever to show message inside the wizard
+    $('#wizard').smartWizard('showMessage', myMessage);
+  }
+});
+```
 
 ## License
 

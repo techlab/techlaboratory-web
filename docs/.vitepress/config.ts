@@ -5,12 +5,6 @@ const GA_TAG_ID = process.env.GA_TAG_ID ?? ''
 const CARBON_SERVE_ID = process.env.CARBON_SERVE_ID ?? ''
 const CARBON_PLACEMENT = process.env.CARBON_PLACEMENT ?? ''
 
-// Build head array conditionally
-const headConfig: any[] = [
-    ['meta', { name: 'theme-color', content: '#0b69ff' }],
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
-]
-
 export default defineConfig({
     title: 'TechLaboratory',
     description: 'Smart and open-source JavaScript plugins',
@@ -22,7 +16,7 @@ export default defineConfig({
         search: {
             provider: 'local'
         },
-        logo: './images/logo.png',
+        logo: '/images/logo.png',
         nav: [
             { text: 'Home', link: '/' },
             {

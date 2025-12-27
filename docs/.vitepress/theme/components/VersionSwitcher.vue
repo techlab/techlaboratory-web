@@ -55,8 +55,6 @@ function getVersionLabel(version) {
 
 function goToVersion() {
   const target = selected.value
-
-  console.log(target)
   // Get path segments after version, excluding 'index.md'
   const rest = segments.value
     .slice(2)
